@@ -35,11 +35,29 @@ question_list=[
 ]
 
 #asking user if they want to start the quiz
-start=input('Do you want to start a quiz about Lisa Carrington?(Yes/No)\n')
+start=input('Do you want to start a quiz about Lisa Carrington?(Yes/No)\n').lower().strip()
 if start == "yes":
+    #keeeping the score
     score=0
     for question in question_list:
         print(question['question'])
         for option in question['option']:
             print(option)
-        user_input=input('Enter the anwser you think is right\n')
+       
+        while True:
+            user_input = input('Enter your answer (A, B, C, or D)\n').upper().strip()
+            if user_input == "A":
+                break
+            elif user_input == "B":
+                break
+            elif user_input == "C":
+                break
+            elif user_input == "D":
+                break
+            else:
+                print('Please enter A,B,C,D only')
+        
+        for anwer in question_list:
+            if user_input == ['answer']:
+                score= score+1
+ 
