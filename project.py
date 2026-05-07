@@ -35,29 +35,43 @@ question_list=[
 ]
 
 #asking user if they want to start the quiz
-start=input('Do you want to start a quiz about Lisa Carrington?(Yes/No)\n').lower().strip()
-if start == "yes":
+while True:
+    start=input('Do you want to start a quiz about Lisa Carrington?(Yes/No)\n').lower().strip()
+    if start == "yes":
+        start = True
+        break
+
     #keeeping the score
-    score=0
-    for question in question_list:
-        print(question['question'])
-        for option in question['option']:
-            print(option)
+        score=0
+        for question in question_list:
+            print(question['question'])
+            for option in question['option']:
+                print(option)
        
         while True:
             user_input = input('Enter your answer (A, B, C, or D)\n').upper().strip()
-            if user_input == "A":
-                break
-            elif user_input == "B":
-                break
-            elif user_input == "C":
-                break
-            elif user_input == "D":
+            if user_input in ['A','B','C','D']:
                 break
             else:
                 print('Please enter A,B,C,D only')
         
-        for anwer in question_list:
-            if user_input == ['answer']:
-                score= score+1
- 
+        if user_input == question['answer']:
+            score = score+1
+            print('You got it correct!\n')
+        else:
+            print('You got it wrong!\n')
+    
+    
+    #calculating the score
+    if score <= 2:
+        print('Nice try, maybe better next time')
+    elif score <= 4:
+        print('Not too bad at all!')
+    elif score <= 6:
+        print('Great job!')
+    else:
+        print('You are a SUPERSTAR')
+    print(f'Your score final is {score} out of 8')
+
+
+
