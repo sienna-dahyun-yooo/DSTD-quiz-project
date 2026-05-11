@@ -35,43 +35,51 @@ question_list=[
 ]
 
 #asking user if they want to start the quiz
-while True:
-    start=input('Do you want to start a quiz about Lisa Carrington?(Yes/No)\n').lower().strip()
-    if start == "yes":
-        start = True
-        break
+user_input_start=input('Do you want to start a quiz about Lisa Carrington?(Yes/No)\n').lower().strip()
+start = user_input_start.replace ("!","").replace(".","")
 
+
+while True:
+    if start == "yes":
     #keeeping the score
         score=0
         for question in question_list:
             print(question['question'])
+
             for option in question['option']:
                 print(option)
        
-        while True:
-            user_input = input('Enter your answer (A, B, C, or D)\n').upper().strip()
-            if user_input in ['A','B','C','D']:
-                break
-            else:
-                print('Please enter A,B,C,D only')
+            while True:
+                user_input = input('Enter your answer (A, B, C, or D)\n').upper().strip()
+                if user_input in ['A','B','C','D']:
+                    break
+                else:
+                    print('Please enter A,B,C,D only')
         
-        if user_input == question['answer']:
-            score = score+1
-            print('You got it correct!\n')
+            if user_input == question['answer']:
+                score = score+1
+                print('You got it correct!\n')
+            else:
+                print('You got it wrong!\n')
+    
+    
+        #calculating the score
+        if score <= 2:
+            print('Nice try, maybe better next time')
+        elif score <= 4:
+            print('Not too bad at all!')
+        elif score <= 6:
+            print('Great job!')
         else:
-            print('You got it wrong!\n')
-    
-    
-    #calculating the score
-    if score <= 2:
-        print('Nice try, maybe better next time')
-    elif score <= 4:
-        print('Not too bad at all!')
-    elif score <= 6:
-        print('Great job!')
+            print('You are a SUPERSTAR')
+        print(f'Your score final is {score} out of 8')
+        break
+
+    elif start == "no":
+        print('See you next time!')
+        break
     else:
-        print('You are a SUPERSTAR')
-    print(f'Your score final is {score} out of 8')
+        print('Please only enter (yes/no)')
+        start=input('Do you want to start a quiz about Lisa Carrington?(Yes/No)\n').lower().strip()
 
-
-
+        
