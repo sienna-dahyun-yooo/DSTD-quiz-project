@@ -1,6 +1,6 @@
 ''' a prgram that gives user questions about Lisa Carrington'''
 #questions in the game
-question_list=[ 
+question_list = [ 
     {'question': 'What year was she born?',
      'option': ['A.1983  B.1989  C.2001  D.1994'],
      'answer':'B'},
@@ -35,20 +35,23 @@ question_list=[
 ]
 
 #asking user if they want to start the quiz
-user_input_start=input('Do you want to start a quiz about Lisa Carrington?(Yes/No)\n').lower().strip()
+user_input_start = input('Do you want to start a quiz about Lisa Carrington?(Yes/No)\n').lower().strip()
 start = user_input_start.replace ("!","").replace(".","")
-
 
 while True:
     if start == "yes":
+
     #keeeping the score
-        score=0
+        score = 0
+        
+        #printing the dictionary in the list
         for question in question_list:
             print(question['question'])
 
             for option in question['option']:
                 print(option)
-       
+
+            #getting input from the user   
             while True:
                 user_input = input('Enter your answer (A, B, C, or D)\n').upper().strip()
                 if user_input in ['A','B','C','D']:
@@ -62,16 +65,15 @@ while True:
             else:
                 print('You got it wrong!\n')
     
-    
         #calculating the score
         if score <= 2:
             print('Nice try, maybe better next time')
         elif score <= 4:
-            print('Not too bad at all!')
+            print('Not too bad..')
         elif score <= 6:
             print('Great job!')
         else:
-            print('You are a SUPERSTAR')
+            print('You are a SUPERSTAR!!')
         print(f'Your score final is {score} out of 8')
         break
 
@@ -81,5 +83,3 @@ while True:
     else:
         print('Please only enter (yes/no)')
         start=input('Do you want to start a quiz about Lisa Carrington?(Yes/No)\n').lower().strip()
-
-        
