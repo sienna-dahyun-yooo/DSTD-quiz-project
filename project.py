@@ -35,7 +35,8 @@ question_list = [
 ]
 
 #asking user if they want to start the quiz
-user_input_start = input('Do you want to start a quiz about Lisa Carrington?(Yes/No)\n').lower().strip()
+user_input_start = input('Do you want to start a quiz about Lisa Carrington?'
+                         '(Yes/No)\n').lower().strip()
 start = user_input_start.replace ("!","").replace(".","")
 
 while True:
@@ -43,7 +44,8 @@ while True:
 
     #keeeping the score
         score = 0
-        
+        total_questions = len(question_list)
+
         #printing the dictionary in the list
         for question in question_list:
             print(question['question'])
@@ -53,33 +55,36 @@ while True:
 
             #getting input from the user   
             while True:
-                user_input = input('Enter your answer (A, B, C, or D)\n').upper().strip()
+                user_input = input('Enter your answer'
+                                   '(A, B, C, or D)\n').upper().strip()
                 if user_input in ['A','B','C','D']:
                     break
                 else:
                     print('Please enter A,B,C,D only')
-        
+
             if user_input == question['answer']:
                 score = score+1
                 print('You got it correct!\n')
             else:
                 print('You got it wrong!\n')
-    
-        #calculating the score
+            
+        #calculating the score/giving feedback to the user
         if score <= 2:
             print('Nice try, maybe better next time')
         elif score <= 4:
-            print('Not too bad..')
+            print('Not too bad')
         elif score <= 6:
             print('Great job!')
         else:
             print('You are a SUPERSTAR!!')
-        print(f'Your score final is {score} out of 8')
+        print(f'Your score final is {score} out of {total_questions}')
         break
+        
 
     elif start == "no":
         print('See you next time!')
         break
     else:
         print('Please only enter (yes/no)')
-        start=input('Do you want to start a quiz about Lisa Carrington?(Yes/No)\n').lower().strip()
+        start=input('Do you want to start a quiz about Lisa Carrington?'
+                    '(Yes/No)\n').lower().strip()
