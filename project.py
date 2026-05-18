@@ -71,13 +71,13 @@ while True:
         #calculating the score/giving feedback to the user
         if score <= 2:
             print('Nice try, maybe better next time')
-        elif score <= 4:
+        elif score <= 5:
             print('Not too bad')
-        elif score <= 6:
+        elif score <= 7:
             print('Great job!')
         else:
             print('You are a SUPERSTAR!!')
-        print(f'Your score final is {score} out of {total_questions}')
+        print(f'Your final score is {score} out of {total_questions}')
         break
         
 
