@@ -35,9 +35,8 @@ question_list = [
 ]
 
 #asking user if they want to start the quiz
-user_input_start = input('Do you want to start a quiz about Lisa Carrington?'
-                         '(Yes/No)\n').lower().strip()
-start = user_input_start.replace ("!","").replace(".","")
+start = input('Do you want to start a quiz about Lisa Carrington?'
+                         '(Yes/No)\n').lower().strip().replace ("!","").replace(".","")
 
 while True:
     if start == "yes":
