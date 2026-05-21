@@ -1,4 +1,4 @@
-''' a prgram that gives user questions about Lisa Carrington'''
+''' a program that gives user questions about Lisa Carrington'''
 #questions in the game
 question_list = [ 
     {'question': 'What year was she born?',
